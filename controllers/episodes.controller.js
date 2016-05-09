@@ -1,4 +1,8 @@
-const Episode = require('../models/episodes.models').Episode;
+const mongoose = require('mongoose');
+require('../models/episodes.models');
+const Episode = mongoose.model('Episode');
+
+require('bluebird').promisifyAll(mongoose);
 
 /**
  * getEpisodes() returns episodes
@@ -12,11 +16,11 @@ const Episode = require('../models/episodes.models').Episode;
 exports.getEpisodes = function (req, res, next) {
   Episode
     .find({})
+    // only select name to return
     .populate('_show', 'name')
-    .exec((err, episodes) => {
-      if (err) return res.status(400).send(err);
-      return res.json(episodes);
-    });
+    .execAsync()
+    .then(episodes => res.json(episodes))
+    .catch(err => res.status(400).send(err));
 };
 
 /* eslint-disable new-cap */
@@ -39,8 +43,7 @@ exports.addEpisode = function (req, res, next) {
     _show: req.body.show,
   });
 
-  newEpisode.save((err, episode) => {
-    if (err) return res.status(400).send(err);
-    return res.json(episode);
-  });
+  newEpisode.saveAsync()
+    .then(episode => res.json(episode))
+    .catch(err => res.status(400).send(err));
 };

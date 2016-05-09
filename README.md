@@ -6,6 +6,7 @@
 ### Tech
 * [node.js] - evented I/O for the backend
 * [Express] - fast node.js network app framework
+* [mongoose] - elegant mongodb object modeling for node.js
 * [Mocha] - test framework
 * [eslint-airbnb] - code style rules
 

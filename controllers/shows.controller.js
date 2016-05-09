@@ -1,4 +1,8 @@
-const Show = require('../models/shows.models').Show;
+const mongoose = require('mongoose');
+require('../models/shows.models');
+const Show = mongoose.model('Show');
+
+require('bluebird').promisifyAll(mongoose);
 
 /**
  * getShows() returns shows
@@ -12,11 +16,9 @@ const Show = require('../models/shows.models').Show;
 exports.getShows = function (req, res, next) {
   Show
     .find({})
-    .populate('episodes')
-    .exec((err, shows) => {
-      if (err) return res.status(400).send(err);
-      return res.json(shows);
-    });
+    .execAsync()
+    .then(shows => res.json(shows))
+    .catch(err => res.status(400).send(err));
 };
 
 /* eslint-disable new-cap */
@@ -34,8 +36,7 @@ exports.addShow = function (req, res, next) {
     name: req.body.name,
     description: req.body.description,
   });
-  newShow.save((err, show) => {
-    if (err) return res.status(400).send(err);
-    return res.json(show);
-  });
+  newShow.saveAsync()
+    .then(show => res.json(show))
+    .catch(err => res.status(400).send(err));
 };
