@@ -1,3 +1,5 @@
+'use strict';
+
 const lint = require('mocha-eslint');
 const paths = [
   './controllers',
@@ -5,7 +7,5 @@ const paths = [
   './test',
 ];
 const options = {};
-
-options.alwaysWarn = false;
 
 lint(paths, options);

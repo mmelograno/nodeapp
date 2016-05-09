@@ -1,3 +1,5 @@
+'use strict';
+
 const mongoose = require('mongoose');
 
 const ShowSchema = new mongoose.Schema({
@@ -16,7 +18,6 @@ const ShowSchema = new mongoose.Schema({
 });
 
 const Show = mongoose.model('Show', ShowSchema);
-/* eslint-disable object-shorthand */
 module.exports = {
-  Show: Show,
+  Show,
 };

@@ -1,3 +1,5 @@
+'use strict';
+
 const mongoose = require('mongoose');
 require('../models/shows.models');
 const Show = mongoose.model('Show');
@@ -20,8 +22,6 @@ exports.getShows = function (req, res, next) {
     .then(shows => res.json(shows))
     .catch(err => res.status(400).send(err));
 };
-
-/* eslint-disable new-cap */
 
 /**
  * addShow() adds new show

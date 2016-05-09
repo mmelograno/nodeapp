@@ -11,7 +11,8 @@ const assertions = require('../assertions/assertions');
 const showTest = {
   name: utils.generateRandomString(),
 };
-const titleEpisode = utils.generateRandomString('abz');
+const titleEpisode = `${utils.generateRandomString()}4`;
+
 let showTestId;
 
 describe('POST /episodes', () => {
@@ -26,9 +27,7 @@ describe('POST /episodes', () => {
           throw err;
         }
         res.body.should.be.validShow();
-        /* eslint-disable no-underscore-dangle */
         showTestId = res.body._id;
-        /* eslint-disable no-underscore-dangle */
         done();
       });
   });

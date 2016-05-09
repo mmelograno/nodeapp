@@ -6,6 +6,10 @@
     "mocha": true,
     "es6": true
   },
+  "parserOptions": {
+   "ecmaVersion": 6,
+   "sourceType": "script"
+ },
   "rules": {
     "semi" : [2, "always"],
     "no-param-reassign": 0,
@@ -13,8 +17,9 @@
     "no-trailing-spaces": [2, { "skipBlankLines": true }],
     "no-shadow": [2, {"allow": ["err", "done", "user", "data", "options"]}],
     "no-unused-vars": [2, {"vars": "all", "args": "after-used", "argsIgnorePattern": "next|options"}],
-    "new-cap": [2, {"capIsNewExceptions": ["Router","Promise"]}],
+    "new-cap": [2, {"capIsNewExceptions": ["Router","Promise","Show","Episode"]}],
     "no-else-return": 0,
-    "strict": [2, "never"]
+    "strict": [2, "global"],
+    "no-underscore-dangle": ["error", { "allow": ["_id", "_show"] }]
   }
 }

@@ -1,3 +1,5 @@
+'use strict';
+
 const mongoose = require('mongoose');
 require('../models/episodes.models');
 const Episode = mongoose.model('Episode');
@@ -22,8 +24,6 @@ exports.getEpisodes = function (req, res, next) {
     .then(episodes => res.json(episodes))
     .catch(err => res.status(400).send(err));
 };
-
-/* eslint-disable new-cap */
 
 /**
  * addEpisode() adds new episode
