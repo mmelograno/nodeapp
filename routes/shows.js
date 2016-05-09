@@ -29,7 +29,7 @@ router.get('/', shows.getShows);
  * @apiSuccess (200) {String}   show.name   Title.
  * @apiSuccess (200) {String}   show.description   Description.
  *
- * @apiError (400) InvalidShow Title is missing.
+ * @apiError (400) InvalidShow Name is missing.
  */
 router.post('/', shows.addShow);
 

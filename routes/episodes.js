@@ -38,6 +38,11 @@ router.get('/', episodes.getEpisodes);
  * @apiSuccess (200) {Number}   episode.episode   Episode number.
  * @apiSuccess (200) {Number}   episode.duration   Duration.
  * @apiSuccess (200) {String}   episode._show   Object id.
+ *
+ * @apiError (400) InvalidEpisode Title is missing.
+ * @apiError (400) InvalidEpisode Season is missing.
+ * @apiError (400) InvalidEpisode Episode is missing.
+ * @apiError (400) InvalidEpisode Show is missing.
  */
 router.post('/', episodes.addEpisode);
 

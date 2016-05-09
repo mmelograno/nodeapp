@@ -68,6 +68,18 @@ define({ "api": [
         ]
       }
     },
+    "error": {
+      "fields": {
+        "400": [
+          {
+            "group": "400",
+            "optional": false,
+            "field": "InvalidEpisode",
+            "description": "<p>Title is missing.</p>"
+          }
+        ]
+      }
+    },
     "filename": "./routes/episodes.js",
     "groupTitle": "Episode"
   },
@@ -212,7 +224,7 @@ define({ "api": [
             "group": "400",
             "optional": false,
             "field": "InvalidShow",
-            "description": "<p>Title is missing.</p>"
+            "description": "<p>Name is missing.</p>"
           }
         ]
       }
