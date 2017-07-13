@@ -1,5 +1,6 @@
 'use strict';
 
+const winston = require('winston');
 const mongoose = require('mongoose');
 require('./model');
 
@@ -43,7 +44,10 @@ const addEpisode = (req, res, next) => {
 
   newEpisode.save()
     .then(episode => res.json(episode))
-    .catch(err => res.status(400).send(err));
+    .catch((err) => {
+      winston.log('error', err.message);
+      return res.status(400).send(err);
+    });
 };
 
 module.exports = {

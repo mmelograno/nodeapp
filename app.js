@@ -6,6 +6,11 @@ const path = require('path');
 const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
+const winston = require('winston');
+
+const config = require('./config');
+
+winston.level = config.logLevel;
 
 const shows = require('./app/shows/index');
 const episodes = require('./app/episodes/index');
@@ -13,7 +18,7 @@ const episodes = require('./app/episodes/index');
 const mongoose = require('mongoose');
 mongoose.Promise = require('bluebird');
 
-mongoose.connect('mongodb://localhost/media', { useMongoClient: true });
+mongoose.connect(config.db, { useMongoClient: true });
 
 const app = express();
 
