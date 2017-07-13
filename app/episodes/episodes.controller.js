@@ -1,10 +1,9 @@
 'use strict';
 
 const mongoose = require('mongoose');
-require('../models/episodes.models');
-const Episode = mongoose.model('Episode');
+require('./episodes.models');
 
-require('bluebird').promisifyAll(mongoose);
+const Episode = mongoose.model('Episode');
 
 /**
  * getEpisodes() returns episodes
@@ -15,12 +14,11 @@ require('bluebird').promisifyAll(mongoose);
  * @param {Object} next
  * @return {Array} episodes
  */
-exports.getEpisodes = function (req, res, next) {
+const getEpisodes = (req, res, next) => {
   Episode
     .find({})
     // only select name to return
     .populate('_show', 'name')
-    .execAsync()
     .then(episodes => res.json(episodes))
     .catch(err => res.status(400).send(err));
 };
@@ -33,7 +31,7 @@ exports.getEpisodes = function (req, res, next) {
  * @param {Object} next
  * @return {Object} episode
  */
-exports.addEpisode = function (req, res, next) {
+const addEpisode = (req, res, next) => {
   const newEpisode = Episode({
     title: req.body.title,
     description: req.body.description,
@@ -43,7 +41,12 @@ exports.addEpisode = function (req, res, next) {
     _show: req.body.show,
   });
 
-  newEpisode.saveAsync()
+  newEpisode.save()
     .then(episode => res.json(episode))
     .catch(err => res.status(400).send(err));
+};
+
+module.exports = {
+  addEpisode,
+  getEpisodes,
 };

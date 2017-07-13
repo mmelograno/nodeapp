@@ -1,8 +1,9 @@
 'use strict';
 
 const express = require('express');
+
 const router = express.Router();
-const episodes = require('../controllers/episodes.controller');
+const episodes = require('./episodes.controller');
 
 /**
  * @api {get} /episodes/ Request Episodes

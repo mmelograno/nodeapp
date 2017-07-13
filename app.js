@@ -7,13 +7,19 @@ const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 
-const shows = require('./routes/shows');
-const episodes = require('./routes/episodes');
+const shows = require('./app/shows/routes');
+const episodes = require('./app/episodes/routes');
 
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost');
+mongoose.Promise = require('bluebird');
+
+mongoose.connect('mongodb://localhost/media', { useMongoClient: true });
 
 const app = express();
+
+// view engine setup
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'pug');
 
 // uncomment after placing your favicon in /public
 // app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -23,8 +29,13 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.get('/', (req, res) => {
+  res.render('index', { title: 'Express' });
+});
+
 app.use('/shows', shows);
 app.use('/episodes', episodes);
+
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
@@ -56,6 +67,5 @@ app.use((err, req, res, next) => {
     error: {},
   });
 });
-
 
 module.exports = app;
