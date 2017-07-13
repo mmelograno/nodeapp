@@ -7,8 +7,8 @@ const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 
-const shows = require('./app/shows/routes');
-const episodes = require('./app/episodes/routes');
+const shows = require('./app/shows/index');
+const episodes = require('./app/episodes/index');
 
 const mongoose = require('mongoose');
 mongoose.Promise = require('bluebird');

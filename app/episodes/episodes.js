@@ -1,7 +1,7 @@
 'use strict';
 
 const mongoose = require('mongoose');
-require('./episodes.models');
+require('./model');
 
 const Episode = mongoose.model('Episode');
 

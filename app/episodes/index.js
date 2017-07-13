@@ -3,7 +3,7 @@
 const express = require('express');
 
 const router = express.Router();
-const episodes = require('./episodes.controller');
+const episodes = require('./episodes');
 
 /**
  * @api {get} /episodes/ Request Episodes

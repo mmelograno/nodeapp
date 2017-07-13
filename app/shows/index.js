@@ -3,7 +3,7 @@
 const express = require('express');
 
 const router = express.Router();
-const shows = require('./shows.controller');
+const shows = require('./shows');
 
 /**
  * @api {get} /shows/ Request Shows
