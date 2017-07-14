@@ -18,12 +18,6 @@ const QueryBuilder = require('../../lib/QueryBuilder');
  * @return {Array} shows
  */
 const getShows = (req, res, next) => {
-  /*
-  Show
-    .find({})
-    .then(shows => res.json(shows))
-    .catch(err => res.status(400).send(err));
-    */
   QueryBuilder.search(req.query, req.baseUrl)
     .then(shows => res.json(shows))
     .catch(err => res.status(400).send(err));

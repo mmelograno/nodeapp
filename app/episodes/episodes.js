@@ -6,6 +6,8 @@ require('./model');
 
 const Episode = mongoose.model('Episode');
 
+const QueryBuilder = require('../../lib/QueryBuilder');
+
 /**
  * getEpisodes() returns episodes
  * from mongoDb
@@ -16,11 +18,9 @@ const Episode = mongoose.model('Episode');
  * @return {Array} episodes
  */
 const getEpisodes = (req, res, next) => {
-  Episode
-    .find({})
-    // only select name to return
+  QueryBuilder.search(req.query, req.baseUrl)
     .populate('_show', 'name')
-    .then(episodes => res.json(episodes))
+    .then(shows => res.json(shows))
     .catch(err => res.status(400).send(err));
 };
 
