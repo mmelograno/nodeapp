@@ -46,7 +46,7 @@ db.episodes.insertMany([{
   season: 1,
   episode: 1,
   picture_url: 'https://images-na.ssl-images-amazon.com/images/M/MV5BZGZjNzZhNzAtYTZjNi00YjU4LWI0NTYtNjZmYWNkYTA2YzY3XkEyXkFqcGdeQXVyMjYwNDA2MDE@._V1_.jpg',
-  _show: ObjectId('5968e362dede238a591766c8')
+  show: ObjectId('5968e362dede238a591766c8')
 }, {
   _id: ObjectId('5968e5d1dede238a591766cf'),
   created: new Date(),
@@ -56,7 +56,7 @@ db.episodes.insertMany([{
   season: 1,
   episode: 2,
   picture_url: 'https://images-na.ssl-images-amazon.com/images/M/MV5BMTQ4OTI5MDM0OV5BMl5BanBnXkFtZTgwNTE1NjQ2MjE@._V1_.jpg',
-  _show: ObjectId('5968e362dede238a591766c8')
+  show: ObjectId('5968e362dede238a591766c8')
 }]);
 
 db.episodes.insertMany([{
@@ -68,7 +68,7 @@ db.episodes.insertMany([{
   season: 1,
   episode: 1,
   picture_url: 'https://images-na.ssl-images-amazon.com/images/M/MV5BMTk5MDU3OTkzMF5BMl5BanBnXkFtZTcwOTc0ODg5NA@@._V1_SY1000_CR0,0,665,1000_AL_.jpg',
-  _show: ObjectId('5967db7e535a33178c03a7eb')
+  show: ObjectId('5967db7e535a33178c03a7eb')
 }, {
   _id: ObjectId('5968e58adede238a591766cd'),
   created: new Date(),
@@ -78,6 +78,6 @@ db.episodes.insertMany([{
   season: 5,
   episode: 1,
   picture_url: 'https://images-na.ssl-images-amazon.com/images/M/MV5BMTk4ODQ0ODQyMl5BMl5BanBnXkFtZTgwMDczODYyNDE@._V1_SY1000_CR0,0,1411,1000_AL_.jpg',
-  _show: ObjectId('5967db7e535a33178c03a7eb')
+  show: ObjectId('5967db7e535a33178c03a7eb')
 }]);
 

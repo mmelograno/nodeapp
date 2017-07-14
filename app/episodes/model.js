@@ -31,7 +31,7 @@ const EpisodesSchema = new mongoose.Schema({
   picture_url: {
     type: String,
   },
-  _show: {
+  show: {
     type: Schema.Types.ObjectId,
     ref: 'Show',
     required: true,

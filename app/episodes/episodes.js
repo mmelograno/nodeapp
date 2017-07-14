@@ -19,7 +19,7 @@ const QueryBuilder = require('../../lib/QueryBuilder');
  */
 const getEpisodes = (req, res, next) => {
   QueryBuilder.search(req.query, req.baseUrl)
-    .populate('_show', 'name')
+    .populate('show', 'name')
     .then(shows => res.json(shows))
     .catch(err => res.status(400).send(err));
 };
