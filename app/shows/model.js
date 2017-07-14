@@ -2,7 +2,17 @@
 
 const mongoose = require('mongoose');
 
+const defaultOptions = {
+  __v: 0,
+};
+
 const ShowSchema = new mongoose.Schema({
+  id: {
+    type: String,
+    required: true,
+    unique: true,
+    lowercase: true,
+  },
   name: {
     type: String,
     required: true,
@@ -17,6 +27,13 @@ const ShowSchema = new mongoose.Schema({
   created: {
     type: Date,
     default: Date.now,
+  },
+  episodes: {
+    type: Object,
+    onPopulate: (doc) => {
+      const Episode = mongoose.model('Episode');
+      return Episode.find({ show: doc.id }, defaultOptions).lean();
+    },
   },
 });
 

@@ -8,6 +8,10 @@ const Episode = mongoose.model('Episode');
 
 const QueryBuilder = require('../../lib/QueryBuilder');
 
+// .populate('tags').where('tags.tagName').in(['funny', 'politics']) 
+// by
+// .populate( 'tags', null, { tagName: { $in: ['funny', 'politics'] } } )
+
 /**
  * getEpisodes() returns episodes
  * from mongoDb
@@ -19,8 +23,7 @@ const QueryBuilder = require('../../lib/QueryBuilder');
  */
 const getEpisodes = (req, res, next) => {
   QueryBuilder.search(req.query, req.baseUrl)
-    .populate('show', 'name')
-    .then(shows => res.json(shows))
+    .then(episodes => res.json(episodes))
     .catch(err => res.status(400).send(err));
 };
 

@@ -12,18 +12,21 @@ db.shows.deleteMany({
 
 db.shows.insertMany([{
   _id: ObjectId('5968e362dede238a591766c8'),
+  id: 'the-simpsons',
   created: new Date(),
   name: 'The Simpsons',
   description: 'The satiric adventures of a working-class family in the misfit city of Springfield.',
   picture_url: 'https://images-na.ssl-images-amazon.com/images/M/MV5BYjFkMTlkYWUtZWFhNy00M2FmLThiOTYtYTRiYjVlZWYxNmJkXkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_SY1000_CR0,0,666,1000_AL_.jpg'
 }, {
   _id: ObjectId('5967db7e535a33178c03a7eb'),
+  id: 'game-of-thrones',
   created: new Date(),
   name: 'Game of Thrones',
   description: 'Nine noble families fight for control over the mythical lands of Westeros, while a forgotten race returns after being dormant for thousands of years.',
   picture_url: 'https://images-na.ssl-images-amazon.com/images/M/MV5BMjE3NTQ1NDg1Ml5BMl5BanBnXkFtZTgwNzY2NDA0MjI@._V1_SY1000_CR0,0,674,1000_AL_.jpg'
 }, {
   _id: ObjectId('5968e379dede238a591766ca'),
+  id: 'vikings',
   created: new Date(),
   name: 'Vikings',
   description: 'The world of the Vikings is brought to life through the journey of Ragnar Lothbrok, the first Viking to emerge from Norse legend and onto the pages of history - a man on the edge of myth.',
@@ -46,7 +49,7 @@ db.episodes.insertMany([{
   season: 1,
   episode: 1,
   picture_url: 'https://images-na.ssl-images-amazon.com/images/M/MV5BZGZjNzZhNzAtYTZjNi00YjU4LWI0NTYtNjZmYWNkYTA2YzY3XkEyXkFqcGdeQXVyMjYwNDA2MDE@._V1_.jpg',
-  show: ObjectId('5968e362dede238a591766c8')
+  show: 'the-simpsons'
 }, {
   _id: ObjectId('5968e5d1dede238a591766cf'),
   created: new Date(),
@@ -56,7 +59,7 @@ db.episodes.insertMany([{
   season: 1,
   episode: 2,
   picture_url: 'https://images-na.ssl-images-amazon.com/images/M/MV5BMTQ4OTI5MDM0OV5BMl5BanBnXkFtZTgwNTE1NjQ2MjE@._V1_.jpg',
-  show: ObjectId('5968e362dede238a591766c8')
+  show: 'the-simpsons'
 }]);
 
 db.episodes.insertMany([{
@@ -68,7 +71,7 @@ db.episodes.insertMany([{
   season: 1,
   episode: 1,
   picture_url: 'https://images-na.ssl-images-amazon.com/images/M/MV5BMTk5MDU3OTkzMF5BMl5BanBnXkFtZTcwOTc0ODg5NA@@._V1_SY1000_CR0,0,665,1000_AL_.jpg',
-  show: ObjectId('5967db7e535a33178c03a7eb')
+  show: 'game-of-thrones',
 }, {
   _id: ObjectId('5968e58adede238a591766cd'),
   created: new Date(),
@@ -78,6 +81,6 @@ db.episodes.insertMany([{
   season: 5,
   episode: 1,
   picture_url: 'https://images-na.ssl-images-amazon.com/images/M/MV5BMTk4ODQ0ODQyMl5BMl5BanBnXkFtZTgwMDczODYyNDE@._V1_SY1000_CR0,0,1411,1000_AL_.jpg',
-  show: ObjectId('5967db7e535a33178c03a7eb')
+  show: 'game-of-thrones',
 }]);
 

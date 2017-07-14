@@ -20,6 +20,20 @@ const shows = require('./shows');
  */
 router.get('/', shows.getShows);
 /**
+ * @api {get} /shows/id Request Shows
+ * @apiVersion 0.0.1
+ * @apiName GetShowsById
+ * @apiGroup Show
+ * @apiExample {curl} Example usage:
+ *     curl -i http://localhost/shows/{id}
+ *
+ * @apiSuccess (200) {Object[]} shows Shows stored in the app.
+ * @apiSuccess (200) {String}   shows._id   Object id.
+ * @apiSuccess (200) {String}   shows.name   Title.
+ * @apiSuccess (200) {String}   shows.description   Description.
+ */
+router.get('/:id', shows.getShowsById);
+/**
  * @api {post} /shows/ Add Show
  * @apiVersion 0.0.1
  * @apiName AddShow

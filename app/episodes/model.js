@@ -2,7 +2,9 @@
 
 const mongoose = require('mongoose');
 
-const Schema = mongoose.Schema;
+const defaultOptions = {
+  __v: 0,
+};
 
 const EpisodesSchema = new mongoose.Schema({
   title: {
@@ -32,9 +34,13 @@ const EpisodesSchema = new mongoose.Schema({
     type: String,
   },
   show: {
-    type: Schema.Types.ObjectId,
-    ref: 'Show',
+    type: String,
     required: true,
+    lowercase: true,
+    onPopulate: (doc) => {
+      const Show = mongoose.model('Show');
+      return Show.findOne({ id: doc.show }, defaultOptions).lean();
+    },
   },
 });
 
