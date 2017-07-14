@@ -6,6 +6,8 @@ require('./model');
 
 const Show = mongoose.model('Show');
 
+const QueryBuilder = require('../../lib/QueryBuilder');
+
 /**
  * getShows() returns shows
  * from mongoDb
@@ -16,8 +18,13 @@ const Show = mongoose.model('Show');
  * @return {Array} shows
  */
 const getShows = (req, res, next) => {
+  /*
   Show
     .find({})
+    .then(shows => res.json(shows))
+    .catch(err => res.status(400).send(err));
+    */
+  QueryBuilder.search(req.query, req.baseUrl)
     .then(shows => res.json(shows))
     .catch(err => res.status(400).send(err));
 };

@@ -11,6 +11,9 @@ const ShowSchema = new mongoose.Schema({
   description: {
     type: String,
   },
+  picture_url: {
+    type: String,
+  },
   created: {
     type: Date,
     default: Date.now,
